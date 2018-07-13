@@ -9,9 +9,13 @@ public class SistemasOperacionais {
     public static void main(String[] args) {
         Random rnd = new Random();
         Scanner Scanner_in = new Scanner(System.in);
-        Thread thread[];
+        SharedData sd = new SharedData();
+        InsercaoParalela insercao1 = new InsercaoParalela(sd);
+        InsercaoParalela insercao2 = new InsercaoParalela(sd);
+        InsercaoParalela insercao3 = new InsercaoParalela(sd);
+        InsercaoParalela insercao4 = new InsercaoParalela(sd);
         No no = new No(0);
-                        
+                                
         ArvoreAvl arvoreavl = new ArvoreAvl();
                         
         long long_msBegin = 0,long_msEnd = 0,long_msTime = 0;
@@ -41,12 +45,12 @@ public class SistemasOperacionais {
                 
                 if(int_tpProg == 2){
                     System.out.println("Digite o número de threads que serão utilizadas");
-                    int_numThreads = Scanner_in.nextInt();
+                    int_numThreads = Scanner_in.nextInt();                  
                 }
-                
             }else if(int_opcao == 2){
                 System.out.println("Digite o numero de nós que serão inseridos na árvore em KiloBytes: ");
-                int_numNos = Scanner_in.nextInt() * 1024;
+                int_numNos = Scanner_in.nextInt();
+                int_numNos *= 1024 ;
                 
                 if(int_tpProg == 1){
                     long_msBegin = System.currentTimeMillis();
@@ -56,20 +60,12 @@ public class SistemasOperacionais {
                     }
                     long_msEnd = System.currentTimeMillis();
                 }else if(int_tpProg == 2){
-                    thread = new Thread[int_numThreads];
-                    
+                            
                     System.out.println("Numero de threads a serem criadas " + int_numThreads);
                     
                     long_msBegin = System.currentTimeMillis();
-                    for(int_i = 0; int_i < int_numThreads; int_i++){
-                        thread[int_i] = new Thread(new InsercaoParalela());
-                        thread[int_i].start();
-                    }
-                    try{
-                        for(int_i = 0; int_i < int_numThreads; int_i++){
-                            thread[int_i].join();
-                        }
-                    }catch(InterruptedException x) { }
+                                      
+                   insercao1.start();
                                                           
                     long_msEnd = System.currentTimeMillis();
                     

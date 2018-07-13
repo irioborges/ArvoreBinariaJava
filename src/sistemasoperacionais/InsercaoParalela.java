@@ -1,23 +1,21 @@
 package sistemasoperacionais;
 
-public class InsercaoParalela implements Runnable{
+public class InsercaoParalela extends Thread{
    
     ArvoreAvl arvoreavl = new ArvoreAvl();    
+    SharedData sd;
     
     private int numElementos;
     private int valorInicial;
     private int valorFinal;
     
-    public InsercaoParalela(){};
-    
-    public InsercaoParalela(int numElementos, int valorInicial, int valorFinal){
-        this.numElementos = numElementos;
-        this.valorInicial = valorInicial;
-        this.valorFinal = valorFinal;
+    public InsercaoParalela(SharedData sd){
+        this.sd = sd;
     }
+    
     
     @Override
     public void run(){
-            System.out.println("teste");       
+         //sd.         
     }
 }
