@@ -9,7 +9,7 @@ public class No {
 	private No pai;
 	private int chave;
 	private int balanceamento;
-
+        
 	public No(int k) {
 		setEsquerda(setDireita(setPai(null)));
 		setBalanceamento(0);
@@ -61,4 +61,8 @@ public class No {
 	public void setEsquerda(No esquerda) {
 		this.esquerda = esquerda;
 	}
+
+
+        
+        
 }

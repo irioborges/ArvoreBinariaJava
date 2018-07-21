@@ -5,10 +5,16 @@ import java.util.ArrayList;
 public class ArvoreAvl {
 
   protected No raiz;
+  protected boolean encontrado;
 
 	public void inserir(int k) {
 		No n = new No(k);
 		inserirAVL(this.raiz, n);
+                //if(this.raiz == null){
+                //    inserirBinario(n, k);
+                //    this.setRaiz(n);
+                //}
+                //inserirBinario(this.raiz, k);
 	}
 
 	public void inserirAVL(No aComparar, No aInserir) {
@@ -44,6 +50,34 @@ public class ArvoreAvl {
 		}
 	}
 
+        public void inserirBinario(No node, int valor) {
+        //verifica se a árvore já foi criada
+        
+        if (node != null) {
+            //Verifica se o valor a ser inserido é menor que o nodo corrente da árovre, se sim vai para subarvore esquerda
+            if (valor < node.getChave()) {
+                //Se tiver elemento no nodo esquerdo continua a busca
+                if (node.getEsquerda() != null) {
+                    inserirBinario(node.getEsquerda(), valor);
+                } else {
+                    //Se nodo esquerdo vazio insere o novo nodo aqui
+                    //System.out.println("  Inserindo " + valor + " a esquerda de " + node.getChave());
+                    node.setEsquerda(new No(valor)); // = new No(valor);
+                }
+                //Verifica se o valor a ser inserido é maior que o nodo corrente da árvore, se sim vai para subarvore direita
+            }else if (valor > node.getChave()) {
+                //Se tiver elemento no nodo direito continua a busca
+                if (node.getDireita() != null) {
+                    inserirBinario(node.getDireita(), valor);
+                } else {
+                    //Se nodo direito vazio insere o novo nodo aqui
+                    //System.out.println("  Inserindo " + valor + " a direita de " + node.getChave());
+                    node.setDireita(new No(valor)); // = new No(valor);
+                }
+            }
+        }
+        }
+        
 	public void verificarBalanceamento(No atual) {
 		setBalanceamento(atual);
 		int balanceamento = atual.getBalanceamento();
@@ -264,8 +298,37 @@ public class ArvoreAvl {
 		inorder(no.getDireita(), lista);
 	}
         
+        public ArrayList<No> buscaInorder(int valor, boolean encontrado){
+            ArrayList<No> ret = new ArrayList<No>();
+            buscaInorder(raiz, ret, valor);
+            return ret;
+        }
+        
+        public boolean buscaInorder(No no, ArrayList<No> lista, int valor){
+            if (no == null) {
+			return false;
+            }
+            buscaInorder(no.getEsquerda(), lista, valor);
+            lista.add(no);
+            if(no.getChave() == valor){
+                System.out.println("Valor " + valor + " encontrado!");
+                this.encontrado = true;
+                return true;
+            }
+            buscaInorder(no.getDireita(), lista, valor);
+            return this.encontrado;
+        }
+        
+        public void imprimirArvore(){
+            System.out.println(inorder());
+        }
+        
         public No getRaiz(){
             return this.raiz;
+        }
+        
+        public void setRaiz(No no){
+            this.raiz = no;
         }
         
         @Override

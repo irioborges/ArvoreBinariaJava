@@ -3,9 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/irio/Área%20de%20trabalho/SO/arvorejava/src/sistemasoperacionais/SharedData.java</file>
-            <file>file:/home/irio/Área%20de%20trabalho/SO/arvorejava/src/sistemasoperacionais/SistemasOperacionais.java</file>
-            <file>file:/home/irio/Área%20de%20trabalho/SO/arvorejava/src/sistemasoperacionais/InsercaoParalela.java</file>
+            <file>file:/home/irio/Área%20de%20trabalho/so/arvorejava/src/sistemasoperacionais/InsercaoParalela.java</file>
+            <file>file:/home/irio/Área%20de%20trabalho/so/arvorejava/test/sistemasoperacionais/NoTest.java</file>
+            <file>file:/home/irio/Área%20de%20trabalho/so/arvorejava/src/sistemasoperacionais/SistemasOperacionais.java</file>
+            <file>file:/home/irio/Área%20de%20trabalho/so/arvorejava/src/sistemasoperacionais/No.java</file>
+            <file>file:/home/irio/Área%20de%20trabalho/so/arvorejava/src/sistemasoperacionais/ArvoreAvl.java</file>
         </group>
     </open-files>
 </project-private>
